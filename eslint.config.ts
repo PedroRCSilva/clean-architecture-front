@@ -6,9 +6,9 @@ import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
 
 export default [
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'coverage', 'node_modules', 'tsconfig.tsbuildinfo'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -33,7 +33,12 @@ export default [
     rules: {
       'no-console': 'warn',
       'react/button-has-type': 'error',
-      'prettier/prettier': 'error',
+      'prettier/prettier': [
+        'warn',
+        {
+          endOfLine: 'auto'
+        }
+      ],
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
       'unused-imports/no-unused-vars': [

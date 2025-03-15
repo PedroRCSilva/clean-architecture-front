@@ -1,6 +1,3 @@
-
 export const RootProvider = () => {
-  return (
-    <div>learn-react</div>
-  )
+  return <div>learn-react</div>
 }
