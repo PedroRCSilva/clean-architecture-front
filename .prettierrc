@@ -7,11 +7,6 @@
   "bracketSameLine": true,
   "tabWidth": 2,
   "semi": false,
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "prettier/prettier": [
-    "error",
-    {
-      "endOfLine": "auto"
-    }
-  ]
+  "plugins": ["prettier-plugin-tailwindcss"]
+  
 }
