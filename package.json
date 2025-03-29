@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky",
-    "test": "jest --onlyChanged --restoreMocks  --runInBand",
+    "test": "jest  --restoreMocks --maxWorkers=1",
     "format": "eslint --fix"
   },
   "dependencies": {

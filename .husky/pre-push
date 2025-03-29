@@ -1,9 +1,4 @@
 echo "🔍 Validando build..."
 npm run build || { echo "❌ Build falhou! Corrija os erros antes de fazer push."; exit 1; }
 
-echo "⚙️ Validando testes"
-test_output=$(npm test)  # Captura a saída do comando de teste
-echo "$test_output"  # Exibe toda a saída para debug
-
-# Filtra a saída para exibir apenas as falhas
-echo "$test_output" | grep -i "fail" || { echo "❌ Testes falharam! Corrija os erros antes de fazer push."; exit 1; }
+npm run test ||  { echo "❌ Os testes falharam! Corrija os erros antes de fazer push."; exit 1; }
