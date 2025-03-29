@@ -1,10 +1,22 @@
 import { pathsToModuleNameMapper } from 'ts-jest'
 import { compilerOptions } from './tsconfig.json'
+import React from 'react'
 export default {
   preset: 'ts-jest',
-  testEnvironment: 'jest-environment-jsdom',
+    testEnvironment: 'jest-environment-jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest'
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
+      {
+        jsc: {
+          transform: {
+            react: {
+              runtime: 'automatic'
+            }
+          }
+        }
+      }
+    ]
   },
   modulePaths: ['<rootDir>'],
   roots: ['<rootDir>/test'],
