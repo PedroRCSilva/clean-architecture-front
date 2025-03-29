@@ -21,3 +21,4 @@ export default {
   roots: ['<rootDir>/test'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
 }
+
