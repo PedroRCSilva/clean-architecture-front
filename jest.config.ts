@@ -1,9 +1,8 @@
 import { pathsToModuleNameMapper } from 'ts-jest'
 import { compilerOptions } from './tsconfig.json'
-import React from 'react'
 export default {
   preset: 'ts-jest',
-    testEnvironment: 'jest-environment-jsdom',
+  testEnvironment: 'jest-environment-jsdom',
   transform: {
     '^.+\\.(t|j)sx?$': [
       '@swc/jest',
