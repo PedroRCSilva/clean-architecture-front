@@ -1,5 +1,7 @@
-import { RootProvider } from 'src/providers'
+import { HomeView } from './view'
+import { useLogin } from './hooks/useLogin'
 
-export const index = () => {
-  return <RootProvider />
+export const Home = () => {
+  const { signIn } = useLogin()
+  return <HomeView login={signIn} />
 }
