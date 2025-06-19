@@ -4,13 +4,18 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import unusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
+import eslintPluginTypeScript from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
 
 export default [
   { ignores: ['dist', 'coverage', 'node_modules', 'tsconfig.tsbuildinfo'] },
+
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
+      parser: tsParser, // 👉 parser para TS!
       ecmaVersion: 2020,
+      sourceType: 'module',
       globals: globals.browser,
       parserOptions: {
         ecmaFeatures: {
@@ -19,6 +24,7 @@ export default [
       }
     },
     plugins: {
+      '@typescript-eslint': eslintPluginTypeScript,
       react: pluginReact,
       prettier: eslintPluginPrettier,
       unicorn: eslintPluginUnicorn,
@@ -49,7 +55,8 @@ export default [
           args: 'after-used',
           argsIgnorePattern: '^_'
         }
-      ]
+      ],
+      ...eslintPluginTypeScript.configs.recommended.rules
     }
   }
 ]
